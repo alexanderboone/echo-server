@@ -11,6 +11,7 @@ class EchoTestCase(unittest.TestCase):
 
         In case of a socket error, fail and report the problem
         """
+        print('SENDING MESSAGE')
         try:
             reply = client(message)
         except socket.error as e:
@@ -23,6 +24,7 @@ class EchoTestCase(unittest.TestCase):
 
     def test_short_message_echo(self):
         """test that a message short than 16 bytes echoes cleanly"""
+        print('TEST 1')
         expected = "short message"
         actual = self.send_message(expected)
         self.assertEqual(
@@ -33,6 +35,7 @@ class EchoTestCase(unittest.TestCase):
 
     def test_long_message_echo(self):
         """test that a message longer than 16 bytes echoes in 16-byte chunks"""
+        print('TEST 2')
         expected = "Four score and seven years ago our fathers did stuff"
         actual = self.send_message(expected)
         self.assertEqual(
